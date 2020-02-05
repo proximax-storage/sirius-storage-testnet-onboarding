@@ -36,7 +36,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 git clone https://github.com/proximax-storage/sirius-storage-testnet-onboarding.git
 
-cd sirius-testnet-onboarding/drive
+cd sirius-storage-testnet-onboarding/drive
 
 # start storage replicator
 docker-compose up -d
