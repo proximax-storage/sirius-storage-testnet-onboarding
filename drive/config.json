@@ -1,0 +1,71 @@
+{
+    "Storage": {
+        "Datastore": {
+            "Retries": 6,
+            "RetryDelay": 200
+        },
+        "Blockstore": {
+            "Cache": {
+                "BloomFilterSize": 524288,
+                "BloomFilterHashes": 7,
+                "ARCCacheSize": 65536
+            },
+            "HashOnRead": true
+        },
+        "Mounts": [{
+                "Key": "/blocks",
+                "Path": "blocks",
+                "Type": "flatfs"
+            },
+            {
+                "Key": "/",
+                "Path": "datastore",
+                "Type": "badger"
+            }
+        ]
+    },
+    "Replication": {
+        "Disabled": false,
+        "Strong": true
+    },
+    "Network": {
+        "PubSub": {
+            "Gossip": true,
+            "Signing": true,
+            "StrictVerification": true
+        },
+        "Addresses": {
+            "P2P": [
+                "/ip4/0.0.0.0/tcp/64666",
+                "/ip6/::/tcp/64666"
+            ],
+            "API": [
+                "/ip4/0.0.0.0/tcp/6466"
+            ],
+            "Bootstrap": [
+                "/dns4/testnet1.so.xpxsirius.io/tcp/64666/p2p/12D3L7AVAvGmfHsk7bWZuF6F4gXwgYEDtUr9etaKtrxkpEfymAhp",
+                "/dns4/testnet2.so.xpxsirius.io/tcp/64666/p2p/12D3L7AV5xYGWm9cqj3aF5w1iSzk4AQgDAPSrM2apkWupJqWAnAi",
+                "/dns4/testnet3.so.xpxsirius.io/tcp/64666/p2p/12D3L7AV3M72sgtj66GBkU8Zp1vohLetHtTuK4ShkjBnSFua88Wt",
+                "/dns4/testnet4.so.xpxsirius.io/tcp/64666/p2p/12D3L7AV21DFWoijhk9YEGzALtwiVK6DgTQCYBkJrwkuFmRCAYCb",
+                "/dns4/testnet5.so.xpxsirius.io/tcp/64666/p2p/12D3L7AV1RaMSV1tHZCLeFAamtq7ZHDDvhTy9QwxndYouMaPYRCF"
+            ]
+        },
+        "Relay": true,
+        "RelayHop": false,
+        "RelayAuto": true,
+        "NATAuto": true,
+        "NATPortMap": true,
+        "QUIC": false,
+        "ConnectionManagerLow": 600,
+        "ConnectionManagerHigh": 900,
+        "ConnectionManagerGrace": 20000000000,
+        "ClientMode": false
+    },
+    "Ledger": {
+        "Urls": [
+            "http://bctestnet1.brimstone.xpxsirius.io:3000",
+            "http://bctestnet2.brimstone.xpxsirius.io:3000",
+            "http://bctestnet3.brimstone.xpxsirius.io:3000"
+        ]
+    }
+}
