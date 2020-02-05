@@ -31,6 +31,11 @@ $ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docke
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+Git needs to be installed.
+```
+$ sudo apt install git
+```
+
 ## How to download and run Sirius Storage :
 
 ```
@@ -66,7 +71,7 @@ and add your aliases:
 # alias alias_name="command_to_run"
 
 # Long format list
-alias dfmsr="docker exec replicator dfms"
+alias dfmsr="docker-compose exec replicator dfms"
 ```
 
 You should name your aliases in a way that is easy to remember. It is also recommended to add a comment for future reference.
