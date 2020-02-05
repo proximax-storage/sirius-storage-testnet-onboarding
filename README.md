@@ -51,7 +51,7 @@ The docker image contains the `dfmsr` command. You will be able to access the `d
 
 Instead of typing a long command on the command line, you can create a shortcut by creating bash aliases:
 ```
-alias dfmsr="docker exec replicator dfms"
+alias dfmsr="docker-compose exec replicator dfms"
 ```
 
 To make the alias persistent you need to declare it in the ~/.bash_profile or ~/.bashrc file. Open the ~/.bashrc in your text editor:
