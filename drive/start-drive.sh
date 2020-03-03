@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$drive_key = "<PRIVATE_KEY>"
+drive_key='<PRIVATE_KEY>'
 
 docker stop drive
 docker rm drive

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$replicator_key = "<PRIVATE_KEY>"
+replicator_key='<PRIVATE_KEY>'
 
 docker stop replicator
 docker rm replicator
