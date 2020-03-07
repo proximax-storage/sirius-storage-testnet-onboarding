@@ -1,5 +1,18 @@
 # Sirius Storage Testnet Community Onboarding
 
+## Basic Overview
+This onboarding will help users to operate as Sirius Storage Drive Owner Node and/or Sirius Storage Replicator Node.
+
+[Drive Owner](https://storagedocs.xpxsirius.io/docs/roles/owner/) is an owner who initiates files storage in the DFMS network.  
+
+[Replicator](https://storagedocs.xpxsirius.io/docs/roles/replicator/) node has 2 roles:
+
+1) replicator: store drive owner's data for payment.
+2) verifier: checking that data is untouched and safe
+
+For better understand how the Sirius Storage works, it will be worthwhile reading the [online sirius storage documentation](https://storagedocs.xpxsirius.io/) 
+
+
 ## OS Requirements
 Ensure that your local network allows inbound/outbound traffic on these ports:
 - 3000/tcp
@@ -32,7 +45,7 @@ $ sudo apt install git
 ```
 
 
-## How to download Sirius Storage :
+## How to download Sirius Storage:
 
 ```
 git clone https://github.com/proximax-storage/sirius-storage-testnet-onboarding.git
@@ -40,37 +53,19 @@ git clone https://github.com/proximax-storage/sirius-storage-testnet-onboarding.
 
 ## How to run as Drive Owner 
 
-### Change directory:
+Change directory:
 ```
 cd sirius-testnet-onboarding/drive
 ```
 
-### Add private key:
+Getting started instructions can be found [here](./drive/README.md).
 
-Edit `start-drive.sh` and replace `<PRIVATE_KEY>` with drive node's private key.
+## How to run as Replicator and Verifier
 
+### Generate a key pair for the node:
 ```
-#!/bin/bash
-
-$drive_key = "<PRIVATE_KEY>"
-
-docker stop drive
-docker rm drive
-docker run -d --name drive -p 6366:6466 -p 63666:64666 -v $PWD:/root/.dfms:rw proximax/sirius-storage-drive:v0.6.3 dfms -k $drive_key
+./generate_address
 ```
-
-### start storage drive
-```
-./start-drive.sh <YOUR_PRIVATE_KEY>
-```
-
-### stop storage drive
-```
-./stop-drive.sh
-```
-
-
-## How to run as Replicator and Verifier 
 
 ### Change directory:
 ```
@@ -79,7 +74,7 @@ cd sirius-testnet-onboarding/replicator
 
 ### Add private key:
 
-Edit `start-replicator.sh` and replace `<PRIVATE_KEY>` with replicator node's private key.
+Edit `start-replicator.sh` and replace `<PRIVATE_KEY>` with replicator drive account's private key.
 
 ```
 #!/bin/bash
@@ -101,6 +96,9 @@ docker exec replicator dfms contract accepting
 ```
 ./stop-replicator.sh
 ```
+
+#TODO: 
+- Getting started instructions for Sirius Storage Replicators
 
 ## DFMS and DFMSR Command
 The docker image contains the `dfmsr` and `dfms` command. 
@@ -139,8 +137,11 @@ Read more about the usage of the `dfmsr` and `dfms` CLI [here](https://storagedo
 
 Please take note that the alias command can only be run when the `drive` and/or `replicator` are running
 
-Please take note that the alias command can only be run when the `drive` and/or `replicator` are running
-
-
 ## Helpdesk
 We have a [telegram helpdesk](https://t.me/proximaxhelpdesk) to assist general queries.
+
+
+## References
+- [Sirius Storage](https://storagedocs.xpxsirius.io/)
+
+- [ProximaX Exchange Market](https://storagedocs.xpxsirius.io/docs/built_in_features/exchange/)
